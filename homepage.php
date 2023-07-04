@@ -22,7 +22,9 @@ if (empty($_SESSION['id'])){
         width: 250px;
         background-color: #333;
         color: #fff;
-        padding: 20px 10px;
+        padding: 56px 10px;
+        margin: -10px 0 -10px -10px;
+        height: auto;
     }
 
     .sidebar a {
@@ -53,9 +55,9 @@ if (empty($_SESSION['id'])){
         text-align: center;
     }
 
-    .sidebar-footer {
-        margin-top: auto;
-        margin-bottom: 20px;
+    .sidebar-logout {
+        /* margin-top: auto; */
+        /* margin-bottom: 20px; */
         text-align: center;
     }
 
@@ -67,8 +69,6 @@ if (empty($_SESSION['id'])){
             <h1><?php echo "Welcome ". '<br>' .$_SESSION['name'];?></h1>
             <h2><?php echo strtoupper($_SESSION['access']);?></h2>
         </div>
-        <a href="viewuser.php">View User</a>
-        <a href="adduser.php">Add User</a>
         
         <?php
         if($_SESSION['access']=='Admin' || $_SESSION['access']=='Teacher' ){
@@ -76,22 +76,21 @@ if (empty($_SESSION['id'])){
             <a href="subject.php">Subject Section</a>
             <a href="chapter.php">Chapter Section</a>
             <a href="standard.php">Standard Section</a>
-            <a href="assign.php">Assign Subject and Student</a>
+            <a href="assign_sub.php">Assign Subject and Student</a>
             <?php
-        } elseif ($_SESSION['access']=='Student' ){
-            echo "<p>You are a Student</p>";
-        } else {
-            echo "Your Details";
         }
 
         if($_SESSION['access']=='Admin' ){
             ?>
             <a href="assignchap.php">Assign Chapter to Subject</a>
+            <a href="viewuser.php">View User</a>
+            <a href="adduser.php">Add User</a>
+        
             <?php
         }
         ?>
         
-        <div class="sidebar-footer">
+        <div class="sidebar-logout">
             <a href="logout.php">Logout</a>
         </div>
     </div>
